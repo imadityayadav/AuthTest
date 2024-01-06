@@ -13,15 +13,15 @@ router.get("/test", auth, (req, res) => {
     res.json({
         success: true,
         message: "Test successful"
-    })
-})
+    });
+});
 
 // Protected Route for Student
 router.get("/student", auth, isStudent, (req, res) => {
     res.json({
         success: true,
         message: "Welcome to Protected Route for Student"
-    })
+    });
 });
 
 // Protected Route for Admin 
@@ -29,7 +29,7 @@ router.get("/admin", auth, isAdmin, (req, res) => {
     res.json({
         success: true,
         message: "Welcome to Protected Route for Admin"
-    })
+    });
 });
 
 router.get("/getEmail", auth, async (req, res) => {
@@ -42,14 +42,14 @@ router.get("/getEmail", auth, async (req, res) => {
             success : true,
             user : user,
             message : "Welcome to Email Route"
-        })
-    }       
+        });
+    }
     catch(err){
         res.status(500).json({
             success : false,
             message : err.message
-        })
+        });
     } 
-})
+});
 
 module.exports = router;
